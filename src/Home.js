@@ -1,9 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import Cart from './Cart';
-import './App.css';
 
 function Home() {
   const [items, setItems] = useState([]);
+
+  const handleDeleteItem = (index) => {
+    setItems(prevItems => {
+      const updatedItems = [...prevItems];
+      updatedItems.splice(index, 1);
+      return updatedItems;
+    });
+  };
+
+  const handleClearItems = () => {
+    setItems([]);
+  };
 
   useEffect(() => {
     fetchItems();
@@ -15,6 +26,7 @@ function Home() {
       .then(data => setItems(data))
       .catch(error => console.log('Error fetching items:', error));
   };
+
 
   return (
     <div className="home-container">
@@ -29,10 +41,9 @@ function Home() {
         ))}
         </div>
       <div className="right-side">
-      <Cart items={items} />
+        <Cart items={items} onDeleteItem={handleDeleteItem} onClearItems={handleClearItems} />
       </div>
     </div>
-  );
-}
-
+        );
+  }
 export default Home;
