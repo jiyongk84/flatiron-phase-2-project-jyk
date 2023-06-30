@@ -1,38 +1,67 @@
-.App {
-  text-align: center;
+.cart-container {
+  display: flex;
+  justify-content: space-between;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.cart-items {
+  flex: 1;
+  margin: 1rem;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.cart-items h2 {
+  margin-top: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.cart-items form {
   display: flex;
   flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.cart-items input {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+}
+
+.cart-items button {
+  padding: 0.5rem;
+}
+
+.cart-items ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cart-items li {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-bottom: 0.5rem;
 }
 
-.App-link {
-  color: #61dafb;
+.cart-items .clear-button {
+  margin-top: 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.total {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.home-container {
+  display: flex; /* Use flexbox */
+}
+
+.left-side {
+  flex: 0.5; /* Take up remaining space */
+}
+
+.right-side {
+  flex: 1; /* Adjust the value to control the width of the right side */
+  margin-left: 30px; /* Add some spacing between the left and right sides */
 }
