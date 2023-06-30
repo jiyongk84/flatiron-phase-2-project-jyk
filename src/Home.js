@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Cart from './Cart';
-import Data from './Data';
+// import Data from './Data';
 
 function Home( {onAddItem} ) {
   const [items, setItems] = useState([]);
@@ -34,9 +34,9 @@ function Home( {onAddItem} ) {
     onAddItem(item)
   };
 
-  const handleAddItem = (newItem) => {
-    setItems(prevItems => [...prevItems, newItem]);
-  };
+  // const handleAddItem = (newItem) => {
+  //   setItems(prevItems => [...prevItems, newItem]);
+  // };
 
   return (
     <div className="home-container">
