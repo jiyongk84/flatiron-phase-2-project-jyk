@@ -23,7 +23,7 @@ function App() {
       <div>
         <NavBar />
         <Routes>
-          <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home onAddItem={handleAddItem} />} />
           <Route
             path="/cart"
             element={<Cart items={cartItems} onAddItem={handleAddItem} onDeleteItem={handleDeleteItem} />}
