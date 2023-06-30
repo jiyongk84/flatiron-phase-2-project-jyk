@@ -12,15 +12,36 @@ function Data({ onAddItem }) {
     const newItem = {
       name: itemName,
       type: itemType,
-      picture: itemPicture,
+      image: itemPicture,
       price: parseFloat(itemPrice),
     };
 
-    onAddItem(newItem);
-    setItemName('');
-    setItemType('');
-    setItemPicture('');
-    setItemPrice('');
+    fetch('http://localhost:3000/items', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newItem),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Failed to add item');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        // Call the onAddItem function to update the state in the parent component
+        onAddItem(newItem);
+
+        // Reset the form fields
+        setItemName('');
+        setItemType('');
+        setItemPicture('');
+        setItemPrice('');
+      })
+      .catch((error) => {
+        console.log('Error adding item:', error);
+      });
   };
 
   return (
