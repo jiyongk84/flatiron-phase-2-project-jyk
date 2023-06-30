@@ -3,9 +3,10 @@ import Cart from './Cart';
 
 function Home() {
   const [items, setItems] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
 
   const handleDeleteItem = (index) => {
-    setItems(prevItems => {
+    setCartItems(prevItems => {
       const updatedItems = [...prevItems];
       updatedItems.splice(index, 1);
       return updatedItems;
@@ -13,7 +14,7 @@ function Home() {
   };
 
   const handleClearItems = () => {
-    setItems([]);
+    setCartItems([]);
   };
 
   useEffect(() => {
@@ -27,23 +28,28 @@ function Home() {
       .catch(error => console.log('Error fetching items:', error));
   };
 
+  const handleAddToCart = (item) => {
+    setCartItems(prevItems => [...prevItems, item]);
+  };
 
   return (
     <div className="home-container">
       <div className="left-side">
         <h2>Item Selection</h2>
         {items.map((item) => (
-          <div key={item.id}>
-            <p>URL: {item.image}</p>
+          <div className="item-card" key={item.id}>
+            <img src={item.image} alt={item.name} />
             <p>Item: {item.name}</p>
             <p>Price: {item.price}</p>
+            <button onClick={() => handleAddToCart(item)}>Add to Cart</button>
           </div>
         ))}
-        </div>
+      </div>
       <div className="right-side">
-        <Cart items={items} onDeleteItem={handleDeleteItem} onClearItems={handleClearItems} />
+        <Cart items={cartItems} onDeleteItem={handleDeleteItem} onClearItems={handleClearItems} />
       </div>
     </div>
-        );
-  }
+  );
+}
+
 export default Home;
