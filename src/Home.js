@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Cart from './Cart';
+import Data from './Data';
 
-function Home() {
+function Home( {onAddItem} ) {
   const [items, setItems] = useState([]);
   const [cartItems, setCartItems] = useState([]);
 
@@ -30,6 +31,11 @@ function Home() {
 
   const handleAddToCart = (item) => {
     setCartItems(prevItems => [...prevItems, item]);
+    onAddItem(item)
+  };
+
+  const handleAddItem = (newItem) => {
+    setItems(prevItems => [...prevItems, newItem]);
   };
 
   return (
