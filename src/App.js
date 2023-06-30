@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import NavBar from './NavBar';
+import Home from './Home';
+import Cart from './Cart';
+import Data from './Data';
 
 function App() {
+  const [cartItems, setCartItems] = useState([]);
+
+  const handleAddItem = (newItem) => {
+    setCartItems([...cartItems, newItem]);
+  };
+
+  const handleDeleteItem = (index) => {
+    const updatedItems = [...cartItems];
+    updatedItems.splice(index, 1);
+    setCartItems(updatedItems);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>Confirming this is working as expected</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/cart"
+            element={<Cart items={cartItems} onAddItem={handleAddItem} onDeleteItem={handleDeleteItem} />}
+          />
+          <Route path="/data" element={<Data />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
