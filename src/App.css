@@ -65,3 +65,34 @@
   flex: 1; /* Adjust the value to control the width of the right side */
   margin-left: 30px; /* Add some spacing between the left and right sides */
 }
+
+.item-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.item-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.item-card p {
+  margin: 5px 0;
+}
+
+.item-card p.name {
+  font-weight: bold;
+}
+
+.item-card p.price {
+  color: #888;
+}
+
