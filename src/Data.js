@@ -1,10 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Data({ onAddItem }) {
   const [itemName, setItemName] = useState('');
   const [itemType, setItemType] = useState('');
   const [itemPicture, setItemPicture] = useState('');
   const [itemPrice, setItemPrice] = useState('');
+  const [allItems, setAllItems] = useState([]);
+
+  useEffect(() => {
+    fetchItems();
+  }, []);
+
+  const fetchItems = () => {
+    fetch('http://localhost:3000/items')
+      .then((response) => response.json())
+      .then((data) => setAllItems(data))
+      .catch((error) => console.log('Error fetching items:', error));
+  };
 
   const handleAddItem = (e) => {
     e.preventDefault();
@@ -38,6 +50,9 @@ function Data({ onAddItem }) {
         setItemType('');
         setItemPicture('');
         setItemPrice('');
+
+        // Fetch all items again to update the data displayed below
+        fetchItems();
       })
       .catch((error) => {
         console.log('Error adding item:', error);
@@ -78,8 +93,27 @@ function Data({ onAddItem }) {
         />
         <button type="submit">Add</button>
       </form>
-    </div>
-  );
-}
 
+      <h2>All Items</h2>
+    <table className="item-table">
+      <thead>
+        <tr>
+          <th className="category">Item Name</th>
+          <th className="category">Item Type</th>
+          <th className="category">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        {allItems.map((item) => (
+          <tr key={item.id}>
+            <td>{item.name}</td>
+            <td>{item.type}</td>
+            <td>{item.price}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+);
+}
 export default Data;
