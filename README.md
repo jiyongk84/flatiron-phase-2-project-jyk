@@ -9,62 +9,88 @@ In the project directory, you can run:
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Open [http://localhost:3001](http://localhost:3001) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+# Title of project: Point of Sale
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Items are displayed from the database on the left side and the cart on the right side. Each item has a add to cart button to "add" to the cart. The cart adds all the prices of each item and display the total. 
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Acknowledgements
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+ - [Pinterest](https://pinterest.com) for all the great pictures
+ - [readme.so](https://readme.so) for Readme template
+ - [google.com](https://www.google.com) for searching results 
+ - [react.dev](https://react.dev/) for React education
+ - [github.com](https://www.github.com) for Repositories and enable collaboration
+ -[Flatiron](https://www.flatironschool.com) for the Bootcamp and education
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## API Reference
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### Get all items
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```http
+  GET /localhost:3000/items/${id}
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. Id of item to fetch |
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+#### Post each item
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```http
+  POST /localhost:3000/items/${id}
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. Id of item to fetch |
 
-### Code Splitting
+```http
+  DELETE /localhost:3000/items/${id}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. Id of item to fetch |
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+## Features
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Display items from the database
+- Cart: add totals, delete items, clear cart
+- Able to add new items to the Database
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 🔗 Links
+[Github](https://github.com/jiyongk84)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Installation
+Go to my [github](https://github.com/jiyongk84)
 
-### `npm run build` fails to minify
+Fork the following:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+https://github.com/jiyongk84/flatiron-phase-2-project-jyk 
+https://github.com/jiyongk84/json-server-template
+
+- run the JSON server using:
+
+    - npm run dev 
+
+- start the Project app using:
+    - npm start
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+
+## Screenshots
+
+![Alt text](image.png)
+
