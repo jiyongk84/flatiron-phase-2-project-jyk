@@ -1,17 +1,19 @@
 .cart-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 .cart-items {
-  flex: 1;
+  flex: 0.5;
   margin: 1rem;
   padding: 1rem;
-  border: 1px solid #ccc;
+  border: 1px solid orange;
   border-radius: 4px;
+  background-color: lavender;
 }
 
 .cart-items h2 {
+  justify-content: center;
   margin-top: 0;
 }
 
@@ -54,45 +56,80 @@
 }
 
 .home-container {
-  display: flex; /* Use flexbox */
+  display: flex; 
 }
 
 .left-side {
-  flex: 0.5; /* Take up remaining space */
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-bottom: 20px;
 }
 
 .right-side {
-  flex: 1; /* Adjust the value to control the width of the right side */
-  margin-left: 30px; /* Add some spacing between the left and right sides */
+  flex: 1; 
+  margin-left: 5px;
+  
+}
+
+.right-side h2 {
+  display: flex;
+  justify-content: center;
+}
+
+.item-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
 }
 
 .item-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px;
+  justify-content: space-between;
+  padding: 1px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  width: 150px;
+  margin-right: 10px;
   margin-bottom: 10px;
 }
 
 .item-card img {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: auto;
   object-fit: cover;
   border-radius: 4px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .item-card p {
-  margin: 5px 0;
+  margin: 3px 0;
+  text-align: center;
 }
 
 .item-card p.name {
   font-weight: bold;
+  margin-bottom: 5px;
 }
 
 .item-card p.price {
+  margin-top: auto;
+  margin-bottom: 0;
   color: #888;
 }
 
+.item-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.category {
+  border-bottom: 1px solid #000;
+}
+
+.item-card button {
+  margin-top: auto;
+}
