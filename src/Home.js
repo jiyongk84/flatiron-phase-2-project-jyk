@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Cart from './Cart';
-// import Data from './Data';
 
 function Home( {onAddItem} ) {
   const [items, setItems] = useState([]);
@@ -34,24 +33,24 @@ function Home( {onAddItem} ) {
     onAddItem(item)
   };
 
-  // const handleAddItem = (newItem) => {
-  //   setItems(prevItems => [...prevItems, newItem]);
-  // };
 
   return (
     <div className="home-container">
       <div className="left-side">
         <h2>Item Selection</h2>
+        <div className='item-cards'>
         {items.map((item) => (
           <div className="item-card" key={item.id}>
             <img src={item.image} alt={item.name} />
-            <p>Item: {item.name}</p>
-            <p>Price: {item.price}</p>
+            <p>{item.name}</p>
+            <p>${item.price}</p>
             <button onClick={() => handleAddToCart(item)}>Add to Cart</button>
-          </div>
+        </div>
         ))}
       </div>
+    </div>
       <div className="right-side">
+        <h2>Cart</h2>
         <Cart items={cartItems} onDeleteItem={handleDeleteItem} onClearItems={handleClearItems} />
       </div>
     </div>
