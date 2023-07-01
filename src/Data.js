@@ -59,6 +59,22 @@ function Data({ onAddItem }) {
       });
   };
 
+  const handleDeleteItem = (id) => {
+    fetch(`http://localhost:3000/items/${id}`, {
+      method: 'DELETE',
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Failed to delete item');
+        }
+        // Fetch all items again to update the data displayed below
+        fetchItems();
+      })
+      .catch((error) => {
+        console.log('Error deleting item:', error);
+      });
+  };
+
   return (
     <div className="data-section">
       <h2>Add Items</h2>
@@ -95,25 +111,30 @@ function Data({ onAddItem }) {
       </form>
 
       <h2>All Items</h2>
-    <table className="item-table">
-      <thead>
-        <tr>
-          <th className="category">Item Name</th>
-          <th className="category">Item Type</th>
-          <th className="category">Price</th>
-        </tr>
-      </thead>
-      <tbody>
-        {allItems.map((item) => (
-          <tr key={item.id}>
-            <td>{item.name}</td>
-            <td>{item.type}</td>
-            <td>{item.price}</td>
+      <table className="item-table">
+        <thead>
+          <tr>
+            <th className="category">Item Name</th>
+            <th className="category">Item Type</th>
+            <th className="category">Price</th>
+            <th className="category">Actions</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
-);
+        </thead>
+        <tbody>
+          {allItems.map((item) => (
+            <tr key={item.id}>
+              <td>{item.name}</td>
+              <td>{item.type}</td>
+              <td>{item.price}</td>
+              <td>
+                <button onClick={() => handleDeleteItem(item.id)}>Delete</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
 }
+
 export default Data;
