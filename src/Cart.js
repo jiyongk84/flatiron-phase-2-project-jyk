@@ -18,7 +18,6 @@ function Cart({ items, onDeleteItem, onClearItems }) {
   return (
     <div className="cart-container">
       <div className="cart-items">
-        <h2>Cart</h2>
         {items.length === 0 ? (
           <p>Your cart is empty. Add items from the Item Selection.</p>
         ) : (
@@ -26,7 +25,7 @@ function Cart({ items, onDeleteItem, onClearItems }) {
             {items.map((item, index) => (
               <li key={index}>
                 <span>{item.name}</span>
-                <button onClick={() => handleRemoveItem(index)}>Delete</button>
+                <button onClick={() => handleRemoveItem(index)}>x</button>
               </li>
             ))}
           </ul>
