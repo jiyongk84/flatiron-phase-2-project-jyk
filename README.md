@@ -83,6 +83,11 @@ https://github.com/jiyongk84/json-server-template
 
     - npm run dev 
 
+- run :
+    - npm install
+    - npm install react-icons 
+
+
 - start the Project app using:
     - npm start
 ## License
