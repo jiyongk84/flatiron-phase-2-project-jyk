@@ -98,12 +98,14 @@
   flex-direction: column;
   flex: 1;
   margin-bottom: 20px;
-  
+}
+
+.left-side h2 {
+  color: #ffffff;
 }
 
 .right-side {
-  flex: 0.4; 
-  
+  flex: 0.5; 
   border-left: 2px solid black;
   
 }
@@ -111,6 +113,7 @@
 .right-side h2 {
   display: flex;
   justify-content: center;
+  color: #ffffff
 }
 
 .item-cards {
@@ -181,4 +184,55 @@
   color: #0ba2ee;
 }
 
+.increment-item,
+.increment-item {
+  background-color: #4caf50; 
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin: 0 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
 
+.increment-item:hover,
+.increment-item:hover {
+  background-color: #45a049;
+}
+
+.increment-item:active,
+.increment-item:active {
+  background-color: #3e8e41; 
+}
+
+.decrement-item,
+.decrement-item {
+  background-color: #9c0000; 
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin: 0 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.decrement-item:hover,
+.decrement-item:hover {
+  background-color: #860000;
+}
+
+.decrement-item:active,
+.decrement-item:active {
+  background-color: #840000; 
+}
+
+.delete-item {
+  cursor: pointer;
+  background-color: #ff0000;
+  color: #ffffff
+}
+
+.delete-item:hover {
+  background-color: #a80000;
+  transition: background-color 0.3s, color 0.3s;
+}
