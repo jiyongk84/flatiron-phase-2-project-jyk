@@ -2,11 +2,14 @@ import React from 'react';
 import './App.css';
 import { FaTrash, FaMinus, FaPlus } from 'react-icons/fa';
 
-function Cart({ items, onDeleteItem, onClearItems, onAddItem }) {
+function Cart({ items, onDeleteItem, onClearItems, onAddItem, onDecrementItem }) {
   const handleRemoveItem = (index) => {
     onDeleteItem(index);
   };
 
+  const handleDecrementItem = (item) => {
+    onDecrementItem(item);
+  }
   const handleClearItems = () => {
     onClearItems();
   };
@@ -31,15 +34,15 @@ function Cart({ items, onDeleteItem, onClearItems, onAddItem }) {
               <li key={index}>
                 <span>{item.name}</span>
                 <div>
-                  <button onClick={() => handleRemoveItem(index)}>
+                  <button className="decrement-item" onClick={() => handleDecrementItem(item)}>
                     <FaMinus />
                   </button>
                   <span>{item.quantity}</span>
-                  <button onClick={() => handleAddItem(item)}>
+                  <button className="increment-item" onClick={() => handleAddItem(item)}>
                     <FaPlus />
                   </button>
                 </div>
-                <button onClick={() => handleRemoveItem(index)}>
+                <button className="delete-item" onClick={() => handleRemoveItem(index)}>
                   <FaTrash />
                 </button>
               </li>
