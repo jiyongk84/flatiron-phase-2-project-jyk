@@ -42,16 +42,13 @@ function Data({ onAddItem }) {
         return response.json();
       })
       .then((data) => {
-        // Call the onAddItem function to update the state in the parent component
         onAddItem(newItem);
 
-        // Reset the form fields
         setItemName('');
         setItemType('');
         setItemPicture('');
         setItemPrice('');
 
-        // Fetch all items again to update the data displayed below
         fetchItems();
       })
       .catch((error) => {
@@ -67,7 +64,7 @@ function Data({ onAddItem }) {
         if (!response.ok) {
           throw new Error('Failed to delete item');
         }
-        // Fetch all items again to update the data displayed below
+        
         fetchItems();
       })
       .catch((error) => {
