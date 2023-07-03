@@ -1,13 +1,18 @@
 import React from 'react';
 import './App.css';
+import { FaTrash, FaMinus, FaPlus } from 'react-icons/fa';
 
-function Cart({ items, onDeleteItem, onClearItems }) {
+function Cart({ items, onDeleteItem, onClearItems, onAddItem }) {
   const handleRemoveItem = (index) => {
     onDeleteItem(index);
   };
 
   const handleClearItems = () => {
     onClearItems();
+  };
+
+  const handleAddItem = (item) => {
+    onAddItem(item);
   };
 
   const calculateTotal = () => {
@@ -25,7 +30,18 @@ function Cart({ items, onDeleteItem, onClearItems }) {
             {items.map((item, index) => (
               <li key={index}>
                 <span>{item.name}</span>
-                <button onClick={() => handleRemoveItem(index)}>x</button>
+                <div>
+                  <button onClick={() => handleRemoveItem(index)}>
+                    <FaMinus />
+                  </button>
+                  <span>{item.quantity}</span>
+                  <button onClick={() => handleAddItem(item)}>
+                    <FaPlus />
+                  </button>
+                </div>
+                <button onClick={() => handleRemoveItem(index)}>
+                  <FaTrash />
+                </button>
               </li>
             ))}
           </ul>
