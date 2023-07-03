@@ -97,5 +97,5 @@ https://github.com/jiyongk84/json-server-template
 
 ## Screenshots
 
-![Alt text](image.png)
+![Project 2](./phase_2_project.png)
 
