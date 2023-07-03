@@ -42,6 +42,18 @@ function Home({ onAddItem }) {
     }
   };
 
+  const handleDecrementItem = (item) => {
+    if (item.quantity > 1) {
+      const updatedItems = cartItems.map((cartItem) =>
+        cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity - 1 } : cartItem
+      );
+      setCartItems(updatedItems);
+      onAddItem(updatedItems);
+    } else {
+      handleDeleteItem(item);
+    }
+  };
+
   return (
     <div className="home-container">
       <div className="left-side">
@@ -59,7 +71,12 @@ function Home({ onAddItem }) {
       </div>
       <div className="right-side">
         <h2>Cart</h2>
-        <Cart items={cartItems} onAddItem={handleAddToCart} onDeleteItem={handleDeleteItem} onClearItems={handleClearItems} />
+        <Cart
+         items={cartItems} 
+         onAddItem={handleAddToCart} 
+         onDecrementItem={handleDecrementItem}
+         onDeleteItem={handleDeleteItem} 
+         onClearItems={handleClearItems} />
       </div>
     </div>
   );
