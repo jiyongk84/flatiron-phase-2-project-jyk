@@ -8,25 +8,15 @@ import Data from './Data';
 function App() {
   const [cartItems, setCartItems] = useState([]);
 
-  const handleAddItem = (newItem) => {
-    setCartItems([...cartItems, newItem]);
-  };
-
-  const handleDeleteItem = (index) => {
-    const updatedItems = [...cartItems];
-    updatedItems.splice(index, 1);
-    setCartItems(updatedItems);
-  };
-
   return (
     <Router>
       <div>
         <NavBar />
         <Routes>
-        <Route path="/" element={<Home onAddItem={handleAddItem} />} />
+          <Route path="/" element={<Home onAddItem={setCartItems} />} />
           <Route
             path="/cart"
-            element={<Cart items={cartItems} onAddItem={handleAddItem} onDeleteItem={handleDeleteItem} />}
+            element={<Cart items={cartItems} onDeleteItem={setCartItems} />}
           />
           <Route path="/data" element={<Data />} />
         </Routes>
