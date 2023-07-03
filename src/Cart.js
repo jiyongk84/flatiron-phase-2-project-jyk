@@ -19,7 +19,10 @@ function Cart({ items, onDeleteItem, onClearItems, onAddItem, onDecrementItem })
   };
 
   const calculateTotal = () => {
-    const totalPrice = items.reduce((total, item) => total + item.price, 0);
+    const totalPrice = items.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0
+    );
     return totalPrice.toFixed(2);
   };
 
